@@ -1,25 +1,19 @@
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 <style type="text/css"> body {padding: 10px 30px 10px 30px;} table,th, td {text-align: center;} </style>
 
-Boats Segmentation: Cluster Analysis
-
+Assignment 2 - Boats Segmentation: Cluster Analysis
 ========================================================
 
-**Team names**
-
+Anand Aiyer, Siddhartha Chaturvedi, Enrique Flores, Konstantin Zakharov, Demid Fedorov
 
 Business Decisions
 ---------------------------------------------------------
 
-your text...
-
+Target each of the segements/clusters individually, recommendations are in the conclusion.
 
 
 The Data
 --------------------------------------------
-
-
-Your text
 
 
 ```{r echo=FALSE, message=FALSE, prompt=FALSE, results='asis'}
@@ -136,8 +130,26 @@ We decide to use the unscaled data for now.
 
 #### Step 3. Decide which variables to use for clustering
 
-YOUR TEXT
+We decide to use a more data-oriented approach to finding, which variables to use. We picked the questions that had the largest weights for each factor that we created in Part 1 of the Boats exercise. We decided to use this method, as it was just as effective in finding the clusters we required when using relevant variables, and also it makes sense to take the relevant variable as clustering solutions -- too many variables used to cluster doesn't lead to effective cluster, especially if the distance function used is a regular Euclidean.
 
+We decided to use the following variables,
+
+**From Factor 1**
+ * Q1_9_I see my boat as a status symbol
+
+**From Factor 2**
+ * Q1_18_Boating gives me a feeling of adventure
+ * Q1_21_Boating helps me escape from everyday life and relax
+
+**From Factor 3**
+ * Q1_4_I only consider buying a boat from a reputable brand
+
+**From Factor 4**
+ * Q1_11_I tend to perform minor boat repairs and maintenance on my own
+
+**From Factor 5**
+ * Q1_2_When buying a boat getting the lowest price is more important than the boat brand
+ * Q1_12_When it comes to boating I tend to prefer a basic boat with little to no frills
 
 #### Step 4. Define similarity or dissimilarity measures between observations
 
@@ -236,7 +248,7 @@ Visualization is very important for data analytics, as it can provide a first un
 
 #### Step 6. Select the clustering method to use and decide how many clusters to have
 
-YOUR TEXT
+**From repeated trial and error runs of verifying the clusters generated, we decided on 3 clusters**
 
 In this note we will use two widely used methods: the **Kmeans Clustering Method**, and the **Hierarchical Clustering Method**. Like all clustering methods, these two also require that we have decided how to measure the distance/similarity between our observations.  Explaining how these methods work is beyond our scope. The only difference to highlight is that Kmeans requires the user to define how many segments to create, while Hierarchical Clustering does not. 
 
@@ -328,8 +340,10 @@ print(m1,'chart')
 #### Step 7. Profile and interpret the clusters 
 
 
-
-YOUR TEXT...
+We determined from the clusters that they can be categorized as:
+ * Cluster 1: Wealth/Affluent Buyers
+ * Cluster 2: Boating Enthusiasts
+ * Cluster 3: Boating Hobbists
 
 In our case, assuming we decided we use the `r numb_clusters_used` segments found using Kmeans as outlined above (similar profiling can be done with the results of hierarchical clustering or other segmentation methods), we can see how the responses to our survey differ across segments. The average values of our data for the total population as well as within each customer segment are:
 
@@ -399,7 +413,7 @@ for(i in 2:ncol(Cluster_Profile_standar_mean))
 
 Can we see differences between the segments? Do the segments differ in terms of their average household income and in terms of how often they visit the mall? What else can we say about these segments?
 
-YOUR TEXT...
+__The segments differ in terms of income, age, employment and is consistent between similar questions.__
 
 We can also compare the averages of the profiling variables of each segment relative to the average of the variables across the whole population. This can also help us better understand whether  there are indeed clusters in our data (e.g. if all segments are much like the overall population, there may be no segments). For example, we can measure the ratios of the average for each cluster to the average of the population (e.g. avg(cluster)/avg(population)) and explore a matrix as the following one:
 
@@ -414,8 +428,6 @@ cat(renderHeatmapX(cluster_profile_ratios, border=1, center = 1, minvalue = heat
 ```
 
 
-YOUR TEXT: INTERPRETATION
-
 #### Step 8. Assess the robustness of our clusters
 
 We will skip this step for this exercise. However in practice this is a very important step. 
@@ -424,4 +436,10 @@ We will skip this step for this exercise. However in practice this is a very imp
 Intepretation, Decisions and Conclusion
 ----------------------------------------------------------------
 
-YOUR TEXT HERE....
+We conclude that CreeqBoat needs to target these segements we determined seperately,
+
+Here is what recommend,
+
+ * Cluster 1: Wealth/Affluent Buyer - We target these buyers by seller boats that look good, but doesn't have many boating features. We do not need to give discounts as they are not price sensitive. We can give additional add-ons after the boats, such as servicing etc.
+ * Cluster 2: Boating Enthusiasts - We can offer our high-end boats to these clients and give additional discounts or long-term memberships that allows them to buy our boats/products at a discount.
+ * Cluster 3: Boating Hobbists - This is hobbists, they are price sensitive, we could try to attract them by giving one time discoubt offers.
