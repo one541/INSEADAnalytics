@@ -12,27 +12,27 @@ Answers to Questions
 
 **1. How many factors should she select? Why? Why not more or less?**
 
-We believe that she should select 7 factors, because
+We have selected 5 factors for three main reasons:
 
-1. The elbow point on the scree plot become straight after 7 components in the PCA
-2. The eigenvalues are bigger than or equal to 1
+1. There are 5 factors with eigenvalue > 1.00 (the sixth factor would have eigenvalue of 0.9)
+2. An elbow can be observed after the 5th value when plotting number of components vs eigenvalues
+3. With 5 factors we are explaining more than 50% of variance
+
+Using more factors would introduce more complexity in the analysis while explaining marginal variance. We could use fewer factors to simplify the analysis, but we would be missing factors with eigenvalue > 1, and would contain less than 50% of variance.
 
 **2. How should she associate each of the original 29 variables to the factors selected?**
 
-She should create a rotated set of factors using a rotation technique such as varimax, then drop all variables for a factor that have a coeffcient less than a certain threshold (we used 0.5).
+She should create a rotated set of factors using a rotation technique such as varimax, then drop all variables for a factor that have a coefficient less than a certain threshold (we have used 0.5).
+
+For example, factor 5 is 0.71xQ1_21 + 0.70xQ1_28 + 0.59xQ1_29
 
 **3. How could she interpret the main factors selected? How should she name each factor by looking at items that were most correlated with it?**
 
-For each rotated factor - she should drop all values that have a coefficient less than a certain value (we used 0.5). Then, she needs to look at the set of questions that have a coefficient larger than or equal to 0.5, and infer the type of questions these variables are associated to and label them.
-
-Factor 1: Brand Quality
-Factor 2: Personal Perference (based on demographics)
-Factor 3: Income/Wealth
-Factor 4: Social Value
-Factor 5: Alternatives/Flexibility
-Factor 6: Maintaince
-Factor 7: Self-preception
-
+Factor 1: Quality
+Factor 2: Social status
+Factor 3: Sportiness
+Factor 4: Rationality
+Factor 5: Joy & passion
 
 The Data
 --------------------------------------------------------------
@@ -152,7 +152,7 @@ cat(renderHeatmapX(thecor, border=1))
 
 #### Step 4. Develop a scree plot and decide on the number of factors to be derived
 
-The Scree plot tells us that around 7 is when the elbow point is.
+The Scree plot tells us that around 5 is when the elbow point is.
 
 <br>
 
@@ -249,13 +249,11 @@ print(m1,'chart')
 
 How would you interpret the selected factors?
 
-Factor 1: Brand Quality
-Factor 2: Personal Perference (based on demographics)
-Factor 3: Income/Wealth
-Factor 4: Social Value
-Factor 5: Alternatives/Flexibility
-Factor 6: Maintaince
-Factor 7: Self-preception
+Factor 1: Quality
+Factor 2: Social status
+Factor 3: Sportiness
+Factor 4: Rationality
+Factor 5: Joy & passion
 
 #### Step 6. Save factor scores for subsequent analyses
 

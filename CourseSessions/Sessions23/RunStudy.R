@@ -16,8 +16,8 @@ rm(list = ls( ))
 # When running the case on a local computer, modify this in case you saved the case in a different directory 
 # (e.g. local_directory <- "C:/user/MyDocuments" )
 # type in the Console below help(getwd) and help(setwd) for more information
-local_directory <- paste(getwd(),"CourseSessions/Sessions23", sep="/")
-#local_directory <- "~INSEADAnalytics/CourseSessions/Sessions23"
+#local_directory <- paste(getwd(),"CourseSessions/Sessions23", sep="/")
+local_directory <- "~/Devel/tmp/INSEADAnalytics/CourseSessions/Sessions23"
 
 cat("\n *********\n WORKING DIRECTORY IS ", local_directory, "\n PLEASE CHANGE IT IF IT IS NOT CORRECT using setwd(..) - type help(setwd) for more information \n *********")
 
@@ -26,17 +26,18 @@ datafile_name="MBAadmin" #  do not add .csv at the end! make sure the data are n
 
 # Please ENTER the filename of the Report and Slides (in the doc directory) to generate 
 
-report_file = "Report_s23"
+#report_file = "Report_s23"
 #report_file = "MyBoatsFactor"
+report_file = "Assignment1"
 slides_file = "Slides_s23"
 
 # Please ENTER then original raw attributes to use. 
 # Please use numbers, not column names! e.g. c(1:5, 7, 8) uses columns 1,2,3,4,5,7,8
-factor_attributes_used= c(1:7)
+factor_attributes_used= c(2:30)
 
 # Please ENTER the selection criterions for the factors to use. 
 # Choices: "eigenvalue", "variance", "manual"
-factor_selectionciterion = "eigenvalue"
+factor_selectionciterion = "manual"
 
 # Please ENTER the desired minumum variance explained 
 # (ONLY USED in case "variance" is the factor selection criterion used). 
@@ -44,7 +45,7 @@ minimum_variance_explained = 65  # between 1 and 100
 
 # Please ENTER the number of factors to use 
 # (ONLY USED in case "manual" is the factor selection criterion used).
-manual_numb_factors_used = 2
+manual_numb_factors_used = 5
 
 # Please ENTER the rotation eventually used (e.g. "none", "varimax", "quatimax", "promax", "oblimin", "simplimax", and "cluster" - see help(principal)). Defauls is "varimax"
 rotation_used="varimax"
@@ -67,7 +68,7 @@ max_data_report = 50 # can also chance in server.R
 # 1: start application on LOCAL computer, 0: do not start it
 # SELECT 0 if you are running the application on a server 
 # (DEFAULT is 0). 
-start_local_webapp <- 1
+start_local_webapp <- 0
 # NOTE: You need to make sure the shiny library is installing (see below)
 
 ################################################
